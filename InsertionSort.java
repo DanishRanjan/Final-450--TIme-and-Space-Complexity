@@ -1,24 +1,25 @@
 import java.util.*;
-public class selectionSOrt {
+public class InsertionSort {
 public static void main(String args[]) {
 	Scanner sc = new Scanner(System.in);
 	int n = sc.nextInt();
 	int[] arr = new int[n];
 	for(int i=0;i<arr.length;i++) {
-		arr[i]=sc.nextInt();
+		arr[i] = sc.nextInt();
 	}
-	selection(arr);
-	print(arr); 
+	Insertion(arr);
+	print(arr);
 }
-public static void selection(int[] arr) {
-	for(int i=0;i<arr.length-1;i++) {
-		int minimumTillYet = i;
-		for(int j=i+1;j<arr.length;j++) {
-			if(isSmaller(arr, j,minimumTillYet)) {
-				minimumTillYet=j;
+public static void Insertion(int[] arr) {
+	for(int i=1;i<arr.length;i++) {
+		for(int j=i-1;j>=0;j--) {
+			if(isGreater(arr, j, j+1)){
+				swap(arr, j, j+1);
+			}
+			else {
+				break;
 			}
 		}
-		swap(arr,i,minimumTillYet);
 	}
 }
 public static void swap(int[] arr, int i, int j) {
@@ -26,8 +27,8 @@ public static void swap(int[] arr, int i, int j) {
 	arr[i] = arr[j];
 	arr[j] = temp;
 }
-public static boolean isSmaller(int[] arr, int i, int j) {
-	if(arr[i]<arr[j]) {
+public static boolean isGreater(int[] arr, int j, int i) {
+	if(arr[j]>arr[i]) {
 		return true;
 	}
 	else {
