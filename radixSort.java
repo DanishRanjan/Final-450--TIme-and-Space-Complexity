@@ -52,8 +52,8 @@ public class radixSort {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = ans[i];
 		}
-		System.out.print("After sorting on " + exp + " place -> ");
-		print(arr);
+//		System.out.print("After sorting on " + exp + " place -> ");
+//		print(arr);
 	}
 
 	public static void print(int[] arr) {
